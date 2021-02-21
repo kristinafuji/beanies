@@ -46,10 +46,8 @@ public class DataIn {
     
             System.out.println(dates.size() + " Dates Loaded.");
         }
-//      For Her <3
-//        Scanner sc = new Scanner(new File("C:\\Users\\krist\\OneDrive\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));
-//      For Him <3         
-        Scanner sc = new Scanner(new File("C:\\Users\\ari3l\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));
+//        Scanner sc = new Scanner(new File("C:\\Users\\krist\\OneDrive\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));   
+        Scanner sc = new Scanner(new File("Beanies\\beanies\\Vaccine-Locations.csv"));
         sc.useDelimiter(";");
 
         while (sc.hasNext()) {
