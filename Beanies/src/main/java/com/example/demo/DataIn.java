@@ -24,31 +24,32 @@ public class DataIn {
             .build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         System.out.println("STATUS: " + response.statusCode());
-        if(response.statusCode() != 200) {
-            return;
+        if(response.statusCode() == 200) {
+            Object jar = new JSONParser().parse(response.body());
+
+            JSONArray ja = (JSONArray) jar;
+    
+            for (Object o : ja) {
+                JSONObject day = (JSONObject) o;
+    
+                String dia = (String) day.get("date");
+                int newPosCases = Integer.parseInt((String) day.get("new_positive_cases"));
+                int newProCases = Integer.parseInt((String) day.get("new_probable_cases"));
+                int newSusCases = Integer.parseInt((String) day.get("new_suspect_cases"));
+                int newTotCases = Integer.parseInt((String) day.get("new_total_cases"));
+                int cumCases = Integer.parseInt((String) day.get("cumulative_cases"));
+                int cumTotal = Integer.parseInt((String) day.get("cumulative_total"));
+    
+                Date date = new Date(dia, newPosCases, newProCases, newSusCases, newTotCases, cumCases, cumTotal);
+                dates.add(date);
+            }
+    
+            System.out.println(dates.size() + " Dates Loaded.");
         }
-        Object jar = new JSONParser().parse(response.body());
-
-        JSONArray ja = (JSONArray) jar;
-
-        for (Object o : ja) {
-            JSONObject day = (JSONObject) o;
-
-            String dia = (String) day.get("date");
-            int newPosCases = Integer.parseInt((String) day.get("new_positive_cases"));
-            int newProCases = Integer.parseInt((String) day.get("new_probable_cases"));
-            int newSusCases = Integer.parseInt((String) day.get("new_suspect_cases"));
-            int newTotCases = Integer.parseInt((String) day.get("new_total_cases"));
-            int cumCases = Integer.parseInt((String) day.get("cumulative_cases"));
-            int cumTotal = Integer.parseInt((String) day.get("cumulative_total"));
-
-            Date date = new Date(dia, newPosCases, newProCases, newSusCases, newTotCases, cumCases, cumTotal);
-            dates.add(date);
-        }
-
-        System.out.println(dates.size() + " Dates Loaded.");
-
-        Scanner sc = new Scanner(new File("C:\\Users\\krist\\OneDrive\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));
+//      For Her <3
+//        Scanner sc = new Scanner(new File("C:\\Users\\krist\\OneDrive\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));
+//      For Him <3         
+        Scanner sc = new Scanner(new File("C:\\Users\\ari3l\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));
         sc.useDelimiter(";");
 
         while (sc.hasNext()) {
@@ -59,6 +60,8 @@ public class DataIn {
         System.out.println(locations.size() + " Addresses Loaded.");
 
         sc.close();
+
+        
     }
 
     public List<Location> returnLocations(String zipcode) {
@@ -71,6 +74,10 @@ public class DataIn {
             }
         }
         return out;
+    }
+
+    public List<Date> plzDontJudgeMe() {
+        return dates;
     }
 }
 

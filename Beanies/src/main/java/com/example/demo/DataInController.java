@@ -27,7 +27,11 @@ public class DataInController {
     
     @GetMapping("/locations")
     public List<Location> nearby(@RequestParam(value = "zipcode") String zipcode) {
-       // return this.initData.returnLocations(zipcode);
-       return List.of(new Location("hello", "hello", "hello", "hello"));
+       return this.initData.returnLocations(zipcode);
+    }
+
+    @GetMapping("/count")
+    public List<Date> counts() {
+       return this.initData.plzDontJudgeMe();
     }
 }
