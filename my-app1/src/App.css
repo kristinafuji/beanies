@@ -1,0 +1,179 @@
+/* .App {
+  text-align: center;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #798ee0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.dropdown{
+  right:0;
+  left: auto;
+}
+
+.navBar1{
+  background-color: #9bb1db;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.homeHeader{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  text-align: center;
+}
+
+.mainJumbo{
+  background-color: rgb(202, 216, 243);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:#142448;
+}
+
+.headerIn{
+  line-height:3;
+  text-align: center;
+  margin: 0 auto;
+  color: #22386b;
+}
+
+.topPa{
+  text-align: center;
+  margin: 0 auto;
+  color:#22386b;
+}
+
+.symptoms{
+  color: #22386b;
+}
+
+.prevention{
+  color:#22386b;
+}
+
+.treatment{
+  color: #22386b;
+}
+
+.donation{
+  color: #22386b;
+}
+
+.Information{
+  margin-left: 50%;
+  margin-right: 10%;
+}
+
+.centerPics{
+  padding: 20 px;
+  text-align: center;
+}
+
+.photos{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-group-vertical{
+  position: fixed;
+  right: 0;
+}
+
+p.speech {
+  position:absolute;
+  right:0;
+  width: 450px;
+  height: 250px;
+  text-align:center;
+  color:#142448;
+  background-color: #c2cfec;
+  border: 8px solid #758cc0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #22386b;
+  -moz-box-shadow: 2px 2px 4px #22386b;
+  box-shadow: 2px 2px 4px #22386b;
+}
+
+p.speech2 {
+  left:0;
+  width: 450px;
+  height: 250px;
+  text-align:center;
+  color:#142448;
+  background-color: #c2cfec;
+  border: 8px solid #758cc0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #22386b;
+  -moz-box-shadow: 2px 2px 4px #22386b;
+  box-shadow: 2px 2px 4px #22386b;
+}
+
+p.speech3 {
+  margin:auto;
+  width: 450px;
+  height: 250px;
+  text-align:center;
+  color:#142448;
+  background-color: #c2cfec;
+  border: 8px solid #758cc0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 4px #22386b;
+  -moz-box-shadow: 2px 2px 4px #22386b;
+  box-shadow: 2px 2px 4px #22386b;
+}
+
+.tablePhase {
+  margin: auto;
+  width: 100%;
+  color:#142448;
+  border-collapse: collapse;
+  border: 1px solid black;
+  
+}
+.tablePhase th {
+  border: 1px solid black;
+}
+
+.tablePhase td {
+  border: 1px solid black;
+}
+
+.testH{
+  text-align: center;
+  margin-left: 20px;
+  margin-right:20px;
+  margin-top: 20px;
+}
+
+.zipTe{
+  color:#142448;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
