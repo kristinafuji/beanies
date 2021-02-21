@@ -17,15 +17,16 @@ public class DataIn {
     public List<Location> locations = new ArrayList<>();
     public List<Date> dates = new ArrayList<>();
 
-    public DataIn() throws Exception {
-
+    public void loadData() throws Exception {
         HttpClient client  = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create("https://data.cambridgema.gov/resource/axxk-jvk8.json")) //API FOR COVID STATS MA
             .build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         System.out.println("STATUS: " + response.statusCode());
-
+        if(response.statusCode() != 200) {
+            return;
+        }
         Object jar = new JSONParser().parse(response.body());
 
         JSONArray ja = (JSONArray) jar;
@@ -47,7 +48,7 @@ public class DataIn {
 
         System.out.println(dates.size() + " Dates Loaded.");
 
-        Scanner sc = new Scanner(new File("Vaccine-Locations.csv"));
+        Scanner sc = new Scanner(new File("C:\\Users\\krist\\OneDrive\\Documents\\GitHub\\beanies\\Beanies\\Vaccine-Locations.csv"));
         sc.useDelimiter(";");
 
         while (sc.hasNext()) {

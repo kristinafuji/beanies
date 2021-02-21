@@ -5,17 +5,29 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 public class DataInController {
 
-    @Autowired
+    
     DataIn initData;
+    @Autowired
+    public DataInController(DataIn initData) {
+    this.initData = initData;
+        try {
+        this.initData.loadData();    
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
     
     @GetMapping("/locations")
     public List<Location> nearby(@RequestParam(value = "zipcode") String zipcode) {
-        return initData.returnLocations(zipcode);
+       // return this.initData.returnLocations(zipcode);
+       return List.of(new Location("hello", "hello", "hello", "hello"));
     }
 }
