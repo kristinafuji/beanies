@@ -1,4 +1,4 @@
-package Beanies.src.rootPackage;
+package com.example.demo;
 
 public class Location {
     

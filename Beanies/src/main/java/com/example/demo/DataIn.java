@@ -1,23 +1,23 @@
-package Beanies.src.rootPackage;
+package com.example.demo;
 
 import java.io.*;
 import java.net.http.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.*;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.springframework.stereotype.Component;
+
 import java.net.http.HttpResponse.BodyHandlers;
 import java.net.URI;
 import java.util.*;
-import Beanies.src.*;
 
 
-
-public class Main {
+@Component("initData")
+public class DataIn {
     
-    static List<Location> locations = new ArrayList<>();
-    static List<Date> dates = new ArrayList<>();
+    public List<Location> locations = new ArrayList<>();
+    public List<Date> dates = new ArrayList<>();
 
-    public static void main(String[] args) throws Exception {
+    public DataIn() throws Exception {
 
         HttpClient client  = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -42,7 +42,6 @@ public class Main {
             int cumTotal = Integer.parseInt((String) day.get("cumulative_total"));
 
             Date date = new Date(dia, newPosCases, newProCases, newSusCases, newTotCases, cumCases, cumTotal);
-            date.displayDate();
             dates.add(date);
         }
 
@@ -63,7 +62,9 @@ public class Main {
 
     public List<Location> returnLocations(String zipcode) {
         List<Location> out = new ArrayList<>();
+        System.out.println(locations.size());
         for (int i = 0; i < locations.size(); i++) {
+            System.out.println(locations.get(i).zip + " " + zipcode);
             if (locations.get(i).zip.equals(zipcode)) {
                 out.add(locations.get(i));
             }
@@ -71,3 +72,4 @@ public class Main {
         return out;
     }
 }
+
